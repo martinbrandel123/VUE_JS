@@ -1,7 +1,10 @@
 <template>
   <div class="hello">
-    <CityComponent :name="name" :weather="weather" :temperature="temperature" :updatedAt="updatedAt">
-      
+    <CityComponent v-for="city in cities" v-bind:key="city.id" 
+    :name="city.name" 
+    :weather="city.weather" 
+    :temperature="city.temperature"
+    :updatedAt="city.updatedAt">
     </CityComponent>
   </div>
 </template>
@@ -16,11 +19,23 @@ export default {
    name : 'HelloWorld',
    data(){
         return {
-            name: 'Ma ville', 
-            weather: 'Peu nuageux', 
-            temperature: 20.55, 
-            updatedAt: format(new Date())
-        }
+  cities: [
+    {
+      id: 1,
+      name: 'Ville 1',
+      weather: 'Ensoleillé',
+      temperature: 22.0,
+      updatedAt: format(new Date())
+    },
+    {
+      id: 2,
+      name: 'Ville 2',
+      weather: 'Peu nuageux',
+      temperature: 19.5,
+      updatedAt: format(new Date())
+    }
+  ]
+}
     },
   props: {
     msg: String
