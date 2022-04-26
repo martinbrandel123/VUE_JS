@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <CityComponent :name="cities[0].name">
+    <CityComponent :name="name" :weather="weather" :temperature="temperature" :updatedAt="updatedAt">
       
     </CityComponent>
   </div>
@@ -16,23 +16,11 @@ export default {
    name : 'HelloWorld',
    data(){
         return {
-  cities: [
-    {
-      id: 1,
-      name: 'Ville 1',
-      weather: 'Ensoleillé',
-      temperature: 22.0,
-      updatedAt: new Date()
-    },
-    {
-      id: 2,
-      name: 'Ville 2',
-      weather: 'Peu nuageux',
-      temperature: 19.5,
-      updatedAt: new Date()
-    }
-  ]
-}
+            name: 'Ma ville', 
+            weather: 'Peu nuageux', 
+            temperature: 20.55, 
+            updatedAt: format(new Date())
+        }
     },
   props: {
     msg: String
